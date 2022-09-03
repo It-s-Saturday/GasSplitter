@@ -1,4 +1,5 @@
 import googlemaps
+import car
 from flask import Flask, send_from_directory
 from flask_cors import CORS
 from flask_restful import Api, Resource, reqparse
@@ -20,11 +21,12 @@ def hello_world():
     return {"text": "<p>Hello, World!</p>", "status": 200}
 
 
-@app.route("/get_mpg/<make>/<model>")
-def getMPG(make, model):
+@app.route("/get_mpg/<make>/<model>/<year>")
+def getMPG(make, model, year):
     # add mostafa implementation
-    app.mpg = 1
-    return {"text": "Success", "status": 200}
+    app.mpg = car.get_cars(make, model, year)
+    print(app.mpg)
+    return {"text": "Success", "value": int(app.mpg), "status": 200}
 
 
 # post

@@ -7,6 +7,7 @@ import os
 cwd = os.getcwd()
 print(isfile(f"{cwd}/mock_gas_price.json"))
 
+
 def get_gas():
     print(cwd)
     if isfile(f"{cwd}/mock_gas_price.json"):
@@ -27,6 +28,7 @@ def get_gas():
         response = requests.request("GET", url, headers=headers, params=querystring)
         mock_gas_price = response.text
         return mock_gas_price["result"]["state"]["gasoline"]
+
 
 if __name__ == "__main__":
     print(get_gas())

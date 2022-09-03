@@ -6,6 +6,7 @@ from flask_restful import Api, Resource, reqparse
 from twilio_util import Twilio
 from gas import get_gas
 from models import GoogleApi
+from cdb_util import Cockroach
 
 app = Flask(__name__, static_folder="../client", static_url_path="")
 CORS(app, origins=["*"])
@@ -60,20 +61,18 @@ def calculate(make, model, year, origin, destination, count):
     google_driver = GoogleApi.GoogleApi()
     distance = google_driver.lookup(origin, destination)[:-3].replace(",", "")
     multiply = int(float(distance)) / int(float(mpg))
-    price = get_gas()
-    divide = round((float(price) * int(multiply))/int(count), 2)
+    c = Cockroach()
+    price = c.query()
+    divide = round((float(price) * multiply) / int(count), 2)
+    print(mpg, distance, multiply, price, count, divide)
     return {"text": f"Each person owes {divide}", "value": divide, "status": 200}
+
 
 @app.route("/send/<numbers>/<message>")
 def send(numbers, message):
     twilio = Twilio()
     twilio.message_user_list([numbers], message)
     return {"status": 200}
-
-@app.route("/test")
-def test():
-    r1 = requests.get("http://localhost:8080/get_mpg/test_make/test_model")
-    r2 = requests.get("http://localhost:8080/")
 
 
 if __name__ == "__main__":

@@ -1,20 +1,31 @@
-import DriverInfo from "./components/DriverInfo"
-import Passengers from "./components/Passengers"
+import DriverInfo from "./components/DriverInfo";
+import Passengers from "./components/Passengers";
 import Nav from "./Nav";
 import "./App.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 function App() {
-  const [amount, setAmount] = useState(0)
+  const [amount, setAmount] = useState(0);
+  const [amountText, setAmountText] = useState("");
 
-  const getAmount = (carMake, carModel, carYear, origin, destination, count) => {
+  const getAmount = (
+    carMake,
+    carModel,
+    carYear,
+    origin,
+    destination,
+    count
+  ) => {
     axios
-      .get(`http://localhost:8080/calculate/${carMake}/${carModel}/${carYear}/${origin}/${destination}/${count}`)
+      .get(
+        `http://localhost:8080/calculate/${carMake}/${carModel}/${carYear}/${origin}/${destination}/${count}`
+      )
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
           setAmount(response.data.value);
+          setAmountText(response.data.text);
         }
       })
       .catch((error) => {
@@ -27,17 +38,15 @@ function App() {
       .get(`http://localhost:8080/send/${numbers}/${message}`)
       .then((response) => {
         if (response.status === 200) {
-          console.log("sent")
+          console.log("sent");
         }
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  
 
   const handleSubmit = () => {
-    
     const driverName = document.getElementById("driver-name").value;
     const carMake = document.getElementById("car-make").value;
     const carModel = document.getElementById("car-model").value;
@@ -45,30 +54,40 @@ function App() {
     const origin = document.getElementById("origin").value;
     const destination = document.getElementById("destination").value;
     const passengers = document.getElementsByClassName("passenger-info");
-    let numbers = []
-    let count = 0
+    let numbers = [];
+    let count = 0;
     if (passengers) {
       count = passengers.length;
       let temp = document.querySelectorAll(".passenger-info #phone");
       for (let i = 0; i < temp.length; i++) {
-        console.log(temp[i].value)
-        numbers.push(temp[i].value)
+        console.log(temp[i].value);
+        numbers.push(temp[i].value);
       }
-      console.log(numbers)
+      console.log(numbers);
     }
 
     getAmount(carMake, carModel, carYear, origin, destination, count);
-    // sendMessages(numbers, `Driver: ${driverName}\nFrom: ${origin}\nTo: ${destination}\nAmount Owed: ${amount}`);
-  }
-
+    sendMessages(
+      numbers,
+      `Driver: ${driverName}
+      From: ${origin}
+      To: ${destination}
+      ${amountText}`
+    );
+  };
 
   return (
     <div className="App">
       <Nav />
       <DriverInfo />
       <Passengers />
-      <button id="submit" onClick={handleSubmit}>Submit</button>
-      <div>Amount: {amount}</div>
+      <button id="submit" onClick={handleSubmit}>
+        Submit
+      </button>
+      <div>
+        {/* Amount: {amount} */}
+        {amountText}
+      </div>
     </div>
   );
 }

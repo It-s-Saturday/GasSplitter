@@ -59,7 +59,7 @@ def calculate(make, model, year, origin, destination, count):
     mpg = car.get_cars(make, model, year)
     google_driver = GoogleApi.GoogleApi()
     distance = google_driver.lookup(origin, destination)[:-3].replace(",", "")
-    multiply = int(distance) / int(mpg)
+    multiply = int(float(distance)) / int(float(mpg))
     price = get_gas()
     divide = round(float(price) * int(multiply), 2)
     return {"text": f"Each person owes {divide}", "value": divide, "status": 200}

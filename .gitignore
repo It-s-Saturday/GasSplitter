@@ -1,5 +1,6 @@
 secrets.py
-car_secret.py
+*secret*.py
+api/car_secret.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

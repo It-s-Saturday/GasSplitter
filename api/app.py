@@ -3,7 +3,8 @@ import car
 from flask import Flask, send_from_directory
 from flask_cors import CORS
 from flask_restful import Api, Resource, reqparse
-
+from twilio_util import Twilio
+from gas import get_gas
 from models import GoogleApi
 
 app = Flask(__name__, static_folder="../client", static_url_path="")
@@ -58,10 +59,16 @@ def calculate(make, model, year, origin, destination, count):
     mpg = car.get_cars(make, model, year)
     google_driver = GoogleApi.GoogleApi()
     distance = google_driver.lookup(origin, destination)[:-3].replace(",", "")
-    multiply = int(mpg) * int(distance)
-    divide = round(int(multiply) / int(count), 2)
+    multiply = int(distance) / int(mpg)
+    price = get_gas()
+    divide = round(float(price) * int(multiply), 2)
     return {"text": f"Each person owes {divide}", "value": divide, "status": 200}
 
+@app.route("/send/<numbers>/<message>")
+def send(numbers, message):
+    twilio = Twilio()
+    twilio.message_user_list([numbers], message)
+    return {"status": 200}
 
 @app.route("/test")
 def test():

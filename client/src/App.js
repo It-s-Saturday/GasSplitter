@@ -21,22 +21,44 @@ function App() {
         console.log(error);
       });
   };
+
+  const sendMessages = (numbers, message) => {
+    axios
+      .get(`http://localhost:8080/send/${numbers}/${message}`)
+      .then((response) => {
+        if (response.status === 200) {
+          console.log("sent")
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  
+
   const handleSubmit = () => {
     
-    const driverName = document.getElementById("driver-name").valeu;
+    const driverName = document.getElementById("driver-name").value;
     const carMake = document.getElementById("car-make").value;
     const carModel = document.getElementById("car-model").value;
     const carYear = document.getElementById("car-year").value;
     const origin = document.getElementById("origin").value;
     const destination = document.getElementById("destination").value;
     const passengers = document.getElementsByClassName("passenger-info");
+    let numbers = []
     let count = 0
     if (passengers) {
       count = passengers.length;
+      let temp = document.querySelectorAll(".passenger-info #phone");
+      for (let i = 0; i < temp.length; i++) {
+        console.log(temp[i].value)
+        numbers.push(temp[i].value)
+      }
+      console.log(numbers)
     }
 
     getAmount(carMake, carModel, carYear, origin, destination, count);
-
+    // sendMessages(numbers, `Driver: ${driverName}\nFrom: ${origin}\nTo: ${destination}\nAmount Owed: ${amount}`);
   }
 
 

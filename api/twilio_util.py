@@ -1,5 +1,5 @@
 from twilio.rest import Client
-from secrets import TWILIO_API_KEY, TWILIO_SID
+from models.secrets import TWILIO_API_KEY, TWILIO_SID
 
 
 class Twilio:

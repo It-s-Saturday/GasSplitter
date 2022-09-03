@@ -61,7 +61,7 @@ def calculate(make, model, year, origin, destination, count):
     distance = google_driver.lookup(origin, destination)[:-3].replace(",", "")
     multiply = int(float(distance)) / int(float(mpg))
     price = get_gas()
-    divide = round(float(price) * int(multiply), 2)
+    divide = round((float(price) * int(multiply))/int(count), 2)
     return {"text": f"Each person owes {divide}", "value": divide, "status": 200}
 
 @app.route("/send/<numbers>/<message>")

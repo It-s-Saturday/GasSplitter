@@ -9,9 +9,11 @@ class Twilio:
         self.auth_token = TWILIO_API_KEY
         self.client = Client(self.account_sid, self.auth_token)
 
-    def message_user_list(self, phone_list, message):
-        try:
-            for phone in phone_list:
-                self.message_user(phone, message)
-        except:
-            print("Error sending message to", phone)
+    def message_user_list(self, phone_list, message):        
+        message = self.client.messages.create(  
+                                    messaging_service_sid='MGa2d520dbaf979101c595394a2fa02d7f', 
+                                    body=message,      
+                                    to='+19085149625' 
+                                ) 
+        
+        print(message.sid)

@@ -16,13 +16,13 @@ export default function Passengers() {
 
     return (
         <div>
-            <div id="passengers">
+            <div className="container" id="passengers">
                 {
                     riders
                 }
+            </div>
                 <button onClick={handleAdd}>Add Rider</button>
                 <button onClick={handleRemove}>Remove Rider</button>
-            </div>
         </div>
     )
 }

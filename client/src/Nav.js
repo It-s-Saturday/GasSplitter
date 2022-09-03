@@ -4,10 +4,10 @@ import React from 'react';
 
 export default function Nav() {
     return (
-        <Navbar bg="light">
-        <Container>
-          <Navbar.Brand href="#home">Gas Splitter</Navbar.Brand>
-        </Container>
+        <Navbar>
+            <Container>
+                <Navbar.Brand>Gas Splitter</Navbar.Brand>
+            </Container>
       </Navbar>
     )
 }

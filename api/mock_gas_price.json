@@ -1,0 +1,187 @@
+{
+    "success": true,
+    "result": {
+        "state": {
+            "currency": "usd",
+            "name": "Pennsylvania",
+            "lowerName": "pennsylvania",
+            "gasoline": "4.011",
+            "midGrade": "4.410",
+            "premium": "4.677",
+            "diesel": "5.316"
+        },
+        "cities": [
+            {
+                "currency": "usd",
+                "gasoline": "3.941",
+                "midGrade": "4.393",
+                "premium": "4.728",
+                "diesel": "5.270",
+                "name": "Allentown-Bethlehem-Easton",
+                "lowerName": "allentown-bethlehem-easton"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "4.009",
+                "midGrade": "4.227",
+                "premium": "4.364",
+                "diesel": "5.262",
+                "name": "Altoona",
+                "lowerName": "altoona"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "3.995",
+                "midGrade": "4.431",
+                "premium": "4.745",
+                "diesel": "5.427",
+                "name": "Bloomsburg-Berwick",
+                "lowerName": "bloomsburg-berwick"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "3.989",
+                "midGrade": "4.301",
+                "premium": "4.559",
+                "diesel": "5.282",
+                "name": "Chambersburg-Waynesboro",
+                "lowerName": "chambersburg-waynesboro"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "4.000",
+                "midGrade": "4.468",
+                "premium": "4.797",
+                "diesel": "5.333",
+                "name": "East Stroudsburg",
+                "lowerName": "east stroudsburg"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "3.997",
+                "midGrade": "4.244",
+                "premium": "4.665",
+                "diesel": "5.325",
+                "name": "Erie",
+                "lowerName": "erie"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "4.020",
+                "midGrade": "4.390",
+                "premium": "4.645",
+                "diesel": "5.287",
+                "name": "Gettysburg",
+                "lowerName": "gettysburg"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "4.003",
+                "midGrade": "4.350",
+                "premium": "4.616",
+                "diesel": "5.352",
+                "name": "Harrisburg",
+                "lowerName": "harrisburg"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "4.049",
+                "midGrade": "4.237",
+                "premium": "4.349",
+                "diesel": "5.278",
+                "name": "Johnstown",
+                "lowerName": "johnstown"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "3.982",
+                "midGrade": "4.395",
+                "premium": "4.702",
+                "diesel": "5.285",
+                "name": "Lancaster",
+                "lowerName": "lancaster"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "3.972",
+                "midGrade": "4.358",
+                "premium": "4.689",
+                "diesel": "5.332",
+                "name": "Lebanon",
+                "lowerName": "lebanon"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "4.038",
+                "midGrade": "4.348",
+                "premium": "4.548",
+                "diesel": "5.300",
+                "name": "Mercer County",
+                "lowerName": "mercer county"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "4.015",
+                "midGrade": "4.536",
+                "premium": "4.753",
+                "diesel": "5.261",
+                "name": "Philadelphia (PA only)",
+                "lowerName": "philadelphia (pa only)"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "4.038",
+                "midGrade": "4.423",
+                "premium": "4.684",
+                "diesel": "5.338",
+                "name": "Pittsburgh",
+                "lowerName": "pittsburgh"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "4.021",
+                "midGrade": "4.392",
+                "premium": "4.652",
+                "diesel": "5.216",
+                "name": "Reading",
+                "lowerName": "reading"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "3.983",
+                "midGrade": "4.340",
+                "premium": "4.652",
+                "diesel": "5.415",
+                "name": "Scranton--Wilkes-Barre--Hazleton",
+                "lowerName": "scranton--wilkes-barre--hazleton"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "4.014",
+                "midGrade": "4.279",
+                "premium": "4.500",
+                "diesel": "5.294",
+                "name": "State College",
+                "lowerName": "state college"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "3.963",
+                "midGrade": "4.385",
+                "premium": "4.658",
+                "diesel": "5.427",
+                "name": "Williamsport",
+                "lowerName": "williamsport"
+            },
+            {
+                "currency": "usd",
+                "gasoline": "4.020",
+                "midGrade": "4.363",
+                "premium": "4.613",
+                "diesel": "5.299",
+                "name": "York",
+                "lowerName": "york"
+            }
+        ]
+    }
+}

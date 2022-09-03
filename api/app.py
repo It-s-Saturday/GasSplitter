@@ -53,11 +53,14 @@ def distance(origin, destination):
         return {"status": 400}
 
 
-@app.route("/calculate")
-def calculate():
-    multiply = app.mpg * app.distance
-    divide = round(multiply / app.rider_count, 2)
-    return {"text": f"Each person owes {divide}", "status": 200}
+@app.route("/calculate/<make>/<model>/<year>/<origin>/<destination>/<count>")
+def calculate(make, model, year, origin, destination, count):
+    mpg = car.get_cars(make, model, year)
+    google_driver = GoogleApi.GoogleApi()
+    distance = google_driver.lookup(origin, destination)[:-3].replace(",", "")
+    multiply = int(mpg) * int(distance)
+    divide = round(int(multiply) / int(count), 2)
+    return {"text": f"Each person owes {divide}", "value": divide, "status": 200}
 
 
 @app.route("/test")

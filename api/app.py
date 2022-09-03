@@ -6,9 +6,12 @@ app = Flask(__name__, static_folder="../client", static_url_path="")
 CORS(app, origins=["*"])
 api = Api(app)
 
-@app.route("/")
+
+@app.route("/hello")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    print("called hello world")
+    return {"text": "<p>Hello, World!</p>", "status": 200}
+
 
 if __name__ == "__main__":
-    app.run("localhost", port=3000, debug=True)
+    app.run("localhost", port=8080, debug=True)

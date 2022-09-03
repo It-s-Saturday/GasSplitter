@@ -1,10 +1,13 @@
-import logo from "./logo.svg";
+import DriverInfo from "./components/DriverInfo"
+import Passengers from "./components/Passengers"
+import Nav from "./Nav";
 import "./App.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 function App() {
   const [content, setContent] = useState("");
+  const [amount, setAmount] = useState(0)
 
   useEffect(() => {
     getHello();
@@ -26,22 +29,11 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-
-        {content}
-      </header>
+      <Nav />
+      <DriverInfo />
+      <Passengers />
+      <button>Submit</button>
+      <div>Amount: {amount}</div>
     </div>
   );
 }

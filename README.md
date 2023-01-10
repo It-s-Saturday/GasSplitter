@@ -4,6 +4,8 @@
 
 By: Jibran Absarulislam, Colbe Roberson, & Mostafa Damir
 
+https://devpost.com/software/gas-splitter
+
 ### Installation steps:
 
 ```
